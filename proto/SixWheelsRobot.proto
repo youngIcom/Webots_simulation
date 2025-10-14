@@ -1,0 +1,169 @@
+#VRML_SIM R2025a utf8
+PROTO SixWheelsRobot [
+  field SFVec3f  	translation 	0 0 0.04
+  field SFRotation    	rotation    	0 0 1 0
+  field SFFloat        	bodyMass    	1
+  field SFString    	robotName    	"6WD Robot"
+  field SFString    	controller    	""
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    children [
+      DEF WHEEL1 HingeJoint {
+        jointParameters HingeJointParameters {
+          position 74.36571250384378
+          axis 0 1 0
+          anchor 0.15 0.07 0   # DIUBAH
+        }
+        device [ RotationalMotor { name "wheel1" } ]
+        endPoint Solid {
+          translation 0.15 0.07 0   # DIUBAH
+          rotation 0.779848456339008 -0.44264243475932613 0.44261050608407626 1.8169982838630387
+          children [
+            DEF WHEEL Shape {
+              appearance PBRAppearance { baseColor 0.368627 0.360784 0.392157, roughness 1, metalness 0 }
+              geometry Cylinder { height 0.02, radius 0.04, subdivision 24 }
+            }
+          ]
+          name "wheel1"
+          boundingObject USE WHEEL
+          physics Physics { density -1, mass 0.1 }
+          linearVelocity -0.0212800975849172 0.03388883424781243 -8.164876708143447e-06
+          angularVelocity -0.846824628091464 -0.5317671450142696 7.745543671742438e-06
+        }
+      }
+      DEF WHEEL2 HingeJoint {
+        jointParameters HingeJointParameters {
+          position 23.167371503095822
+          axis 0 1 0
+          anchor 0.15 -0.07 0  # DIUBAH
+        }
+        device [ RotationalMotor { name "wheel2" } ]
+        endPoint Solid {
+          translation 0.15 -0.07 0  # DIUBAH
+          rotation 0.42651423541514055 -0.6395747031593719 0.6395543808518861 2.3354139149903825
+          children [ USE WHEEL ]
+          name "wheel2"
+          boundingObject USE WHEEL
+          physics Physics { density -1, mass 0.1 }
+          linearVelocity -0.021279674540818232 0.0338882954171388 8.166466643011124e-06
+          angularVelocity -0.8468245807829345 -0.5317671186842338 7.746893554336468e-06
+        }
+      }
+      DEF WHEEL3 HingeJoint {
+        jointParameters HingeJointParameters {
+          position 74.36569857012393
+          axis 0 1 0
+          anchor -0.15 0.07 0  # DIUBAH
+        }
+        device [ RotationalMotor { name "wheel3" } ]
+        endPoint Solid {
+          translation -0.15 0.07 0  # DIUBAH
+          rotation 0.7798434893815364 -0.44264683037878705 0.44261486150472035 1.8170044107003478
+          children [ USE WHEEL ]
+          name "wheel3"
+          boundingObject USE WHEEL
+          physics Physics { density -1, mass 0.1 }
+          linearVelocity -0.021260504515627218 0.03385599035750624 8.139872700606409e-06
+          angularVelocity -0.8468220555833865 -0.5317655358826726 7.744559588830015e-06
+        }
+      }
+      DEF WHEEL4 HingeJoint {
+        jointParameters HingeJointParameters {
+          position 23.167375603375476
+          axis 0 1 0
+          anchor -0.15 -0.07 0 # DIUBAH
+        }
+        device [ RotationalMotor { name "wheel4" } ]
+        endPoint Solid {
+          translation -0.15 -0.07 0 # DIUBAH
+          rotation 0.42651571963980295 -0.6395743330314086 0.6395537611706853 2.3354111324523705
+          children [ USE WHEEL ]
+          name "wheel4"
+          boundingObject USE WHEEL
+          physics Physics { density -1, mass 0.1 }
+          linearVelocity -0.021262341059630107 0.03385841091132838 -8.141928766828008e-06
+          angularVelocity -0.8468222528367659 -0.5317656484487406 7.737992312698609e-06
+        }
+      }
+      DEF WHEEL5 HingeJoint {
+        jointParameters HingeJointParameters {
+          position 74.36571250384378
+          axis 0 1 0
+          anchor 0 0.07 0
+        }
+        device [ RotationalMotor { name "wheel5" } ]
+        endPoint Solid {
+          translation 0 0.07 0
+          rotation 0.779848456339008 -0.44264243475932613 0.44261050608407626 1.8169982838630387
+          children [ USE WHEEL ]
+          name "wheel5"
+          boundingObject USE WHEEL
+          physics Physics { density -1, mass 0.1 }
+          linearVelocity -0.0212800975849172 0.03388883424781243 -8.164876708143447e-06
+          angularVelocity -0.846824628091464 -0.5317671450142696 7.745543671742438e-06
+        }
+      }
+      DEF WHEEL6 HingeJoint {
+        jointParameters HingeJointParameters {
+          position 23.167371503095822
+          axis 0 1 0
+          anchor 0 -0.07 0
+        }
+        device [ RotationalMotor { name "wheel6" } ]
+        endPoint Solid {
+          translation 0 -0.07 0
+          rotation 0.42651423541514055 -0.6395747031593719 0.6395543808518861 2.3354139149903825
+          children [ USE WHEEL ]
+          name "wheel6"
+          boundingObject USE WHEEL
+          physics Physics { density -1, mass 0.1 }
+          linearVelocity -0.021279674540818232 0.0338882954171388 8.166466643011124e-06
+          angularVelocity -0.8468245807829345 -0.5317671186842338 7.746893554336468e-06
+        }
+      }
+      DEF body Shape {
+        appearance PBRAppearance { baseColor 0.878431 0.105882 0.141176, roughness 1, metalness 0 }
+        geometry Box {
+          size 0.4 0.12 0.05  # DIUBAH
+        }
+      }
+      DistanceSensor {
+        translation 0.2 0.035 0.01
+        rotation 0 0 1 0.3
+        children [
+          DEF sensor Shape {
+            appearance PBRAppearance { }
+            geometry Box { size 0.01 0.01 0.01 }
+          }
+        ]
+        name "ds_left"
+        boundingObject USE sensor
+        physics Physics { }
+      }
+      DistanceSensor {
+        translation 0.2 -0.035 0.01
+        rotation 0 0 1 -0.3
+        children [
+          DEF sensor Shape {
+            appearance PBRAppearance { }
+            geometry Box { size 0.01 0.01 0.01 }
+          }
+        ]
+        name "ds_right"
+        boundingObject USE sensor
+        physics Physics { }
+      }
+    ]
+    boundingObject USE body
+    physics Physics {
+      density -1
+      mass IS bodyMass
+    }
+    controller "webot_5"
+    linearVelocity -0.021269835729996186 0.03387158168710243 -8.276273365876071e-06
+    angularVelocity 6.196357567902168e-05 9.168386626010705e-06 -1.0136207108883042e-05
+  }
+}
