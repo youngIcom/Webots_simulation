@@ -1,0 +1,46 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/sphero/bb8/protos/BB-8.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/softbank/nao/protos/Nao.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/balls/protos/Ball.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.14450407725008166 0.2642677687027514 0.9535623304655922 1.0413394650477727
+  position -5.108027351139038 -6.898243277936032 2.6859203769680766
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 10
+}
+DEF BB-8 BB-8 {
+  hidden position_0_0 -6.661840949110256e-07
+  hidden position_0_1 1.8023635767216334e-06
+  hidden linearVelocity_0 0.004695373460572758 -0.011265303463668578 -3.655494993968241e-05
+  hidden angularVelocity_0 0.09007816484138467 0.037517011101093595 -0.008597101918118863
+  hidden rotation_3 0 0 -0.9999999999999999 6.664001874625087e-07
+  hidden position_3_0 -4.726289186367068e-06
+  hidden linearVelocity_3 0.009384055536989346 -0.022521518137667073 -2.0503986859814827e-05
+  hidden angularVelocity_3 0.09007439295682937 0.03751490138151351 -0.008588354944413776
+  hidden rotation_4 0 -1 0 4.7262762567870006e-06
+  hidden linearVelocity_4 0.0093809252790707 -0.02251599266512214 -2.0306189168297432e-05
+  hidden angularVelocity_4 0.09007591113387023 0.03751608832061438 -0.008588362029961272
+  hidden rotation_7 0 0 0.9999999999999999 1.8024862438485566e-06
+  hidden linearVelocity_7 0.019711684493498915 -0.047307298383113636 1.4275413191732858e-05
+  hidden angularVelocity_7 0.09007913763035232 0.03751755586248019 -0.008599357048814581
+  translation -0.593255710030745 2.0389392583110553 -0.04154955443254196
+  rotation -0.001974564711019734 0.0015483685520771102 -0.999996851819559 1.5064086634634264
+  controller "<none>"
+}
+Robot {
+  name "supervisor"
+  controller "supervisor_controller_py"
+  supervisor TRUE
+}
