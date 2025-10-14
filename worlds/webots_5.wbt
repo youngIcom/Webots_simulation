@@ -1,0 +1,228 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+  title "my first simulation"
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.16521477904931625 0.9558795799729275 0.24289566767331489 1.2368697949641665
+  position -0.3916174621212183 -0.31296402908233756 1.2741381815337258
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+DEF WALL_1 Solid {
+  translation -0.00459703 0.477011 0.05
+  children [
+    DEF DEF_WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0.341176 0.890196 0.537255
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF WALL_SHAPE Box {
+        size 1 0.05 0.1
+      }
+    }
+  ]
+  name "WALL"
+  boundingObject USE DEF_WALL
+}
+DEF WALL_2 Solid {
+  translation 0.473573 0.00110132 0.05
+  rotation 0 0 -1 1.56426
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(3)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_3 Solid {
+  translation -0.475789 -0.000737216 0.05
+  rotation 0 0 -1 1.56426
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(4)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_4 Solid {
+  translation 0.00115138 -0.479763 0.05
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(2)"
+  boundingObject USE WALL_SHAPE
+}
+Robot {
+  translation 0.1454645929494289 -0.03976949171111401 0.03986243397793941
+  rotation 0.00017423941043869472 -0.00010514156110384362 0.9999999792929397 2.131510740217477
+  children [
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 77.5656427822845
+        axis 0 1 0
+        anchor 0.05 0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.04999737680064873 0.06001329957270268 -1.8521653828113088e-05
+        rotation 0.3507173983292858 0.6621692685319193 -0.6622153473916473 2.4669151519920187
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.368627 0.360784 0.392157
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+              subdivision 24
+            }
+          }
+        ]
+        name "wheel1"
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+          density -1
+          mass 0.1
+        }
+        linearVelocity -0.02126312244450408 0.03386207213577523 8.70451420745144e-06
+        angularVelocity -0.846940122157014 -0.5318119850129593 -5.627264743281613e-06
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 26.36730430236628
+        axis 0 1 0
+        anchor 0.05 -0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05001299946338682 -0.06001795793857764 -2.168188467715087e-05
+        rotation 0.7057486416161477 0.5009168406277749 -0.5010001732858488 1.9124114497076212
+        children [
+          USE WHEEL
+        ]
+        name "wheel2"
+        boundingObject USE WHEEL
+        physics USE WHEEL_PH
+        linearVelocity -0.021263478649410437 0.033862591175924744 -8.628969129773378e-06
+        angularVelocity -0.8469401647570582 -0.5318120106169762 -5.628691543335537e-06
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 77.56563195236063
+        axis 0 1 0
+        anchor -0.05 0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.049980980431960254 0.06003037989836975 1.8555310593373897e-05
+        rotation 0.3507214148194083 0.6621682227607246 -0.6622142658935821 2.4669079569063874
+        children [
+          USE WHEEL
+        ]
+        name "wheel2(1)"
+        boundingObject USE WHEEL
+        physics USE WHEEL_PH
+      }
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 26.367306261479666
+        axis 0 1 0
+        anchor -0.05 -0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05000017305992022 -0.059995006126457126 1.783021836772314e-05
+        rotation 0.7057478389860294 0.5009175010281874 -0.501000643642526 1.9124121623584667
+        children [
+          USE WHEEL
+        ]
+        name "wheel2(2)"
+        boundingObject USE WHEEL
+        physics USE WHEEL_PH
+      }
+    }
+    DEF body Shape {
+      appearance PBRAppearance {
+        baseColor 0.878431 0.105882 0.141176
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.2 0.1 0.05
+      }
+    }
+    DistanceSensor {
+      translation 0.099 0.035 0.01
+      rotation 0 0 1 0.3
+      children [
+        DEF sensor Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject USE sensor
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation 0.099 -0.035 0.01
+      rotation 0 0 1 -0.3
+      children [
+        DEF sensor Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject USE sensor
+      physics Physics {
+      }
+    }
+  ]
+  boundingObject USE body
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "webot_5"
+  linearVelocity -0.02127350497937848 0.03387923590189225 8.7456330148145e-06
+  angularVelocity -6.590062035121064e-05 -2.1471129775907053e-05 8.03160416190838e-06
+}

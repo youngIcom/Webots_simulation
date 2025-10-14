@@ -1,0 +1,158 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+  title "my first simulation"
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation 0.30943836481083437 -0.41981125321914636 -0.8532329166492387 4.858217824355254
+  position -0.5404501684434677 -1.8245373310717885 1.80635948533466
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+E-puck {
+  hidden position_0_0 646.6010470702116
+  hidden position_0_1 767.050405218512
+  hidden linearVelocity_0 0.050235401366909266 -0.03818731595727772 6.902165575678382e-08
+  hidden angularVelocity_0 0.012185356287838504 0.016029831649376443 -9.291307664471141e-09
+  hidden rotation_1 0 1 0 5.7161457378938
+  hidden linearVelocity_1 0.05031554965993202 -0.03824824268553563 -6.42135344923456e-10
+  hidden angularVelocity_1 1.9124121118980948 2.5157774743859918 4.366714287647117e-08
+  hidden rotation_2 0 1 0 0.501797742602419
+  hidden linearVelocity_2 0.0503155499066745 -0.03824824166411781 -6.572905109676375e-10
+  hidden angularVelocity_2 1.9124120936462015 2.5157774882393764 -4.726544378023962e-08
+  translation -0.26959019809294316 0.27968915326011834 -3.1974449899467225e-05
+  rotation 0.0004372747768114031 0.0012977909587367639 -0.9999990622642587 0.6499771379708926
+  controller "epuck_avoid_collision"
+}
+DEF BALL Solid {
+  translation -0.131704 0.0237919 0.04958907968091003
+  rotation -0.8080884357597138 -0.5671006275915521 0.15934226738906007 0.6308050771301678
+  children [
+    DEF GEOMETRI_BALLS Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../../../Downloads/red_brick_wall.jpg"
+          ]
+        }
+      }
+      geometry DEF GEOMETRY_BALL Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE GEOMETRI_BALLS
+  physics Physics {
+  }
+  linearVelocity 0 0 6.74629254045629e-15
+}
+DEF WALL_1 Solid {
+  translation -0.00459703 0.477011 0.05
+  children [
+    DEF DEF_WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0.341176 0.890196 0.537255
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF WALL_SHAPE Box {
+        size 1 0.05 0.1
+      }
+    }
+  ]
+  name "WALL"
+  boundingObject USE DEF_WALL
+}
+DEF WALL_2 Solid {
+  translation 0.473573 0.00110132 0.05
+  rotation 0 0 -1 1.56426
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(3)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_3 Solid {
+  translation -0.475789 -0.000737216 0.05
+  rotation 0 0 -1 1.56426
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(4)"
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL_4 Solid {
+  translation 0.00115138 -0.479763 0.05
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(2)"
+  boundingObject USE WALL_SHAPE
+}
+DEF DUMBBELL Solid {
+  translation 0.09004470290701676 0.01692011030752267 0.01980379541705357
+  rotation 0.6437766521455104 0.4143240459826356 0.6433406617593026 -2.3564849090864506
+  children [
+    DEF g0 Group {
+      children [
+        Pose {
+          translation 0 0 0.05
+          children [
+            Shape {
+              appearance PBRAppearance {
+                roughness 1
+              }
+              geometry Box {
+                size 0.04 0.04 0.04
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.01
+          }
+        }
+        Pose {
+          translation 0 0 -0.05
+          children [
+            Shape {
+              appearance PBRAppearance {
+                roughness 1
+              }
+              geometry Box {
+                size 0.04 0.04 0.04
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  name "bumble"
+  boundingObject USE g0
+  physics Physics {
+    density -1
+    mass 2
+    centerOfMass [
+      0 0 0.01
+    ]
+  }
+  linearVelocity 1.9668351015742546e-10 -6.244534069010374e-11 -1.1740649506866352e-10
+  angularVelocity 3.121933724265005e-09 9.834334878701502e-09 -6.1229158423267e-12
+}

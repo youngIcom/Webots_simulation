@@ -1,0 +1,143 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+  title "my first simulation"
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.38194004342647 0.1504866739057397 0.9118528193761173 2.451744591427681
+  position 1.146150222030455 -1.2133600370480806 1.9528025253000179
+}
+DirectionalLight {
+  direction 3 1 -4
+}
+TexturedBackground {
+}
+Floor {
+  size 1 1
+}
+WoodenBox {
+  translation -0.2984600100768226 -0.013890986963190738 0.04998038000000001
+  rotation 0.9447358777754771 -0.23181255492725042 -0.23181255492725042 1.627615614205717
+  size 0.1 0.1 0.1
+  mass 0.1
+}
+WoodenBox {
+  translation -0.19487827094649526 0.15497642840006173 0.04803800000000001
+  rotation -2.579089320902959e-16 -3.1708993005768575e-16 0.9999999999999999 0.15039700641369108
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+  mass 10
+}
+WoodenBox {
+  translation -0.02100050076259703 0.1834650007036956 0.049960760000000014
+  rotation 4.1029062302024953e-17 3.745919561245592e-17 -1 0.46504468810464283
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+  mass 0.2
+}
+E-puck {
+  hidden position_0_0 602.8006341785881
+  hidden position_0_1 695.8255017449821
+  hidden linearVelocity_0 0.09141279089240126 -0.08639735823940682 -1.4710985089057373e-07
+  hidden angularVelocity_0 0.008277907986966631 0.008758428206265025 -2.1095563374515464e-08
+  hidden rotation_1 0 -1 0 0.3851553106522045
+  hidden linearVelocity_1 0.09145658205911984 -0.08643874858668428 -9.705854808775087e-09
+  hidden angularVelocity_1 4.321937434040517 4.572829143362106 6.33340750869386e-08
+  hidden rotation_2 0 1 0 4.675117955227636
+  hidden linearVelocity_2 0.0914565835268914 -0.086438746512207 -1.0360562385792207e-08
+  hidden angularVelocity_2 4.321937377979611 4.572829196327445 -9.028317046361377e-08
+  translation 0.04512822357716184 -0.18071366927956484 -3.1935032181698575e-05
+  rotation -0.0010669175859218203 -0.0026821196602553696 -0.9999958339518185 0.7572018281179854
+  controller "epuck_avoid_collision"
+}
+WoodenBox {
+  translation 0.28719225966037826 -0.0843179531163434 0.049411399999999994
+  rotation -9.94239555218171e-13 -1.1150285398293156e-13 -1 4.780258710523714e-05
+  name "wooden box(3)"
+  size 0.1 0.1 0.1
+  mass 3
+}
+Solid {
+  translation -0.39877475351492625 -0.2945118794909715 0.04958907968091047
+  rotation 0.37716141750661697 -0.15939558070188214 0.9123279640552016 -2.9942937404812633
+  children [
+    DEF GEOMETRI_BALLS Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../../../Downloads/red_brick_wall.jpg"
+          ]
+        }
+      }
+      geometry DEF GEOMETRY_BALL Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE GEOMETRI_BALLS
+  physics Physics {
+  }
+  linearVelocity 0 0 -1.3570366640910999e-16
+}
+Solid {
+  translation -0.09087428813281129 0.3661779775379608 0.04958907968091047
+  rotation 0.9601542753519342 0.23765871774075661 0.14704455585033194 2.3083911861002573
+  children [
+    USE GEOMETRI_BALLS
+  ]
+  name "solid(1)"
+  boundingObject USE GEOMETRI_BALLS
+  physics Physics {
+  }
+  linearVelocity 0 0 -1.3570366640910999e-16
+}
+Solid {
+  translation -0.00459703 0.477011 0.05
+  children [
+    DEF DEF_WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0.341176 0.890196 0.537255
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF WALL_SHAPE Box {
+        size 1 0.05 0.1
+      }
+    }
+  ]
+  name "WALL"
+  boundingObject USE DEF_WALL
+}
+Solid {
+  translation 0.473573 0.00110132 0.05
+  rotation 0 0 -1 1.56426
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(3)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation -0.475789 -0.000737216 0.05
+  rotation 0 0 -1 1.56426
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(4)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation 0.00115138 -0.479763 0.05
+  children [
+    USE DEF_WALL
+  ]
+  name "solid(2)"
+  boundingObject USE WALL_SHAPE
+}
